@@ -1,0 +1,82 @@
+
+CREATE TABLE `avocat` (
+  `code_barrau` int(11) NOT NULL,
+  `nom_av` varchar(45) NOT NULL,
+  `prenom_av` varchar(45) NOT NULL,
+  `num_tel_av` varchar(45) NOT NULL,
+  `type` varchar(45) NOT NULL,
+  `spécialité` varchar(45) DEFAULT NULL,
+  `code_postale` int(10) DEFAULT NULL,
+  `wilaya` varchar(50) DEFAULT NULL,
+  `idcompte` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+ALTER TABLE `avocat`
+  ADD PRIMARY KEY (`code_barrau`),
+  ADD KEY `fk_compte_avocat` (`idcompte`);
+
+
+
+--
+-- Déchargement des données de la table `avocat`
+--
+
+INSERT INTO `avocat` (`code_barrau`, `nom_av`, `prenom_av`, `num_tel_av`, `type`, `spécialité`, `code_postale`, `wilaya`, `idcompte`) VALUES
+(20104892, 'Hamza', 'Malti', '0721970349', 'Natioanal', 'Administratif', 1234567890, 'Tlemcen', 67),
+(20110523, 'Amina', 'Merabet', '0607952189', 'International', 'Affaire', 1230498745, 'Oran', 28),
+(20150150, 'Touria', 'Ferouani', '0679200478', 'National', 'Famille', 1379512067, 'TLEMCEN', 29),
+(20180005, 'Khadidja', 'Merad', '0512345278', 'International', 'Sociale', 1876543210, 'Oran', 30),
+(20181278, 'Fewzia', 'Benchouk', '0719703478', 'National', 'Pénal', 1278965430, 'Tizi Ouzou', 31),
+(20192078, 'Mohamed', 'Sahel', '0510047988', 'International', 'Propriété intelectuelle', 2103697458, 'Mostaganem', 32),
+(20200001, 'Fayssel', 'charif', '0512345278', 'National', 'Immobilier', 2103647895, 'Ouargla', 66),
+(20200002, 'Houssem', 'Bendjaefer', '0509431878', 'International', 'Administratif', 1023479652, 'Tlemcen', 33),
+(20201279, 'Arslane', 'Belabdelli', '0602379001', 'National', 'Famille', 1023489652, 'Alger', 34),
+(20201325, 'Imad', 'Benikhlef', '0700116792', 'International', 'Sociale', 2079413065, 'Sidi Bel Abbés', 35),
+(20213596, 'Feriel', 'Medjdoub', '0703946221', 'National', 'Pénal', 2014569327, 'Annaba', 36),
+(20230496, 'Adnane', 'Benzerdjeb', '0513790052', 'International', 'Propriété intelectuelle', 1023785312, 'Sidi Bel Abbès', 37);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `client`
+--
+
+CREATE TABLE `client` (
+  `id_client` int(11) NOT NULL,
+  `nom_cl` varchar(45) NOT NULL,
+  `prenom_cl` varchar(45) NOT NULL,
+  `num_tel_cl` varchar(45) NOT NULL,
+  `idcompte` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+----
+-- Index pour la table `client`
+--
+ALTER TABLE `client`
+  ADD PRIMARY KEY (`id_client`),
+  ADD KEY `fk_compte_client` (`idcompte`);
+  
+  
+  
+-- Déchargement des données de la table `client`
+--
+
+INSERT INTO `client` (`id_client`, `nom_cl`, `prenom_cl`, `num_tel_cl`, `idcompte`) VALUES
+(1, 'Yasmine', 'Bougherara', '0512345278', 38),
+(2, 'Amel', 'Boumediene', '0601973279', 39),
+(3, 'Ali', 'Meziane', '0510779634', 40),
+(4, 'Chakib', 'Seladji', '0720934795', 41),
+(5, 'Alaa', 'Bouchenak', '0721009637', 42),
+(6, 'Azza', 'Bensenouci', '0702397863', 43),
+(7, 'Youness', 'Saim', '0579248631', 44),
+(8, 'Imene', 'Benyelles', '0512345278', 45),
+(9, 'Yasser', 'Boubekeur', '05079625432', 46),
+(10, 'Djawed', 'Bensaid', '0512345278', 47),
+(11, 'Ahmed', 'Benabadji', '0720397864', 48),
+(12, 'Lylia', 'Benmansour', '0732569874', 49),
+(13, 'Abderezzak', 'Sekkal', '0515795543', 50),
+(14, 'Khaled', 'Kara', '0512344568', 51),
+(15, 'Othmane', 'Fatmi', '0732971567', 52);
+
+--
